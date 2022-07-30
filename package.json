@@ -1,0 +1,37 @@
+{
+  "name": "baba-highlighting",
+  "displayName": "baba-highlighting",
+  "description": "syntax highlighting for the baba embedded scripting language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "baba",
+        "aliases": [
+          "baba",
+          "baba"
+        ],
+        "extensions": [
+          ".baba",
+          ".ba",
+          ".babac",
+          ".bc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "baba",
+        "scopeName": "source.baba",
+        "path": "./syntaxes/baba.tmLanguage.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,143 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "baba",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#statements"
+		},
+		{
+			"include": "#callables"
+		},
+		{
+			"include": "#ident"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#digits"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.baba",
+					"match": "\\b(if|else|elsif|switch|case|while|for|return|yield|await|include)\\b"
+				},
+				{
+					"name": "constant.language.null.baba",
+					"match": "\\b(blank)\\b"
+				},
+				{
+					"name": "constant.language.bool.baba",
+					"match": "\\b(true|false)\\b"
+				},
+				{
+					"name": "constant.language.self.baba",
+					"match": "\\b(self)\\b"
+				},
+				{
+					"name": "constant.language.super.baba",
+					"match": "\\b(super)\\b"
+				}
+			]
+		},
+		"statements": {
+			"patterns": [
+				{
+					"match": "\\b(var)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
+					"captures": {
+						"1": {
+							"name": "storage.type.baba"
+						},
+						"2": {
+							"name": "support.variable.baba"
+						}
+					}
+				},
+				{
+					"match": "\\b(does)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*\\(([A-Za-z0-9,\\s]*)\\)",
+					"captures": {
+						"1": {
+							"name": "storage.type.function.baba"
+						},
+						"2": {
+							"name": "entity.name.function.baba"
+						},
+						"3": {
+							"patterns": [
+								{
+									"match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b",
+									"name": "variable.parameter.baba"
+								}
+							]
+						}
+					}
+				},
+				{
+					"match": "\\b(thing)\\s+([A-Za-z_][A-Za-z0-9_]*)(?:\\s*(<)\\s*([A-Za-z_][A-Za-z0-9_]*))?\\b",
+					"captures": {
+						"1": {
+							"name": "storage.type.class.baba"
+						},
+						"2": {
+							"name": "entity.name.type.class.baba"
+						},
+						"3": {
+							"name": "storage.modifier.baba"
+						},
+						"4": {
+							"name": "entity.name.type.class.baba"
+						}
+					}
+				}
+			]
+		},
+		"callables": {
+			"patterns": [
+				{
+					"match": "([A-Za-z_][A-Za-z0-9_]*)\\(",
+					"name": "support.function.baba"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.baba",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": []
+		},
+		"digits": {
+			"patterns": [
+				{
+					"name": "constant.numeric.baba",
+					"match": "\\b[0-9]+(?:.[0-9]+)?\\b"
+				}
+			]
+		},
+		"ident": {
+			"patterns": [
+				{
+					"name": "variable.other.readwrite.baba",
+					"match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.baba",
+					"match": "\\/\\/.*"
+				}
+			]
+		}
+	},
+	"scopeName": "source.baba"
+}
